@@ -23,9 +23,25 @@ pip install -r requirements.txt
 streamlit run app.py
 ```
 
-The app expects data files in the same directory:
+The app expects data files in the same directory as `app.py`:
 - `Medicare Monthly Enrollment Data_January 2026.csv`
 - `PLACES__Local_Data_for_Better_Health,_County_Data,_2025_release_20260515.csv`
+
+## Data Setup
+
+The CSV data files are not included in this repository (they are too large for GitHub). Download them from the public sources below and place them in the same folder as `app.py`:
+
+| File | Source | Link |
+|------|--------|------|
+| Medicare Monthly Enrollment Data (January 2026) | CMS | [CMS Monthly Enrollment](https://data.cms.gov/summary-statistics-on-beneficiary-enrollment/medicare-and-medicaid-reports/medicare-monthly-enrollment) |
+| PLACES: Local Data for Better Health, County Data (2025 release) | CDC | [CDC PLACES](https://data.cdc.gov/500-Cities-Places/PLACES-Local-Data-for-Better-Health-County-Data-202/swc5-untb) |
+
+**For the Data Copilot (LLM chatbot) tab**, set environment variables for Snowflake Cortex:
+```bash
+export SNOWFLAKE_ACCOUNT="your_account_id"
+export SNOWFLAKE_USER="your_username"
+```
+Or configure your local `~/.snowflake/connections.toml` file. The chatbot will fall back to deterministic answers if no connection is available.
 
 ## Main Features
 
@@ -34,8 +50,8 @@ The app expects data files in the same directory:
 - **County Prioritization**: Filterable, ranked table with download capability
 - **Chronic Risk Explorer**: Scatter plots, state comparisons, correlation heatmaps
 - **AI Action Summary**: Deterministic strategic recommendations and natural-language Q&A
+- **Data Copilot**: LLM-powered chatbot (Snowflake Cortex) for natural-language data queries
 - **Data Dictionary**: Methodology notes, derived metric explanations, data quality documentation
-- **Demo Mode**: Quick preset buttons for California, Texas, Florida, and New York
 
 ## Outreach Priority Score Methodology
 
